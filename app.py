@@ -1,31 +1,5 @@
 """
-Expedia AI Travel Companion — Hackathon UI (Roam design system)
-================================================================
-Single-file Streamlit app. Fixes vs. previous version:
-
-1. FLIGHT CARDS RENDERED AS BLACK CODE BLOCKS
-   Root cause: the card HTML f-strings were indented inside the for-loop.
-   Markdown treats lines starting with 4+ spaces as <pre> code blocks, so
-   st.markdown printed the HTML *source* in a dark box instead of rendering it.
-   Fix: html() helper collapses all indentation/newlines before st.markdown.
-
-2. INVISIBLE PLOTLY CHART
-   Root cause: st.plotly_chart(theme="streamlit") inherits the app's DARK theme
-   (white text) while CSS forces a light background -> white-on-white.
-   Fix: theme=None + template="plotly_white" + explicit font/grid colors.
-
-3. DARK SELECTBOXES / THEME FIGHTING
-   Root cause: BaseWeb dropdown menus render in a portal OUTSIDE .stApp, so
-   .stApp-scoped CSS never reaches them; CSS alone can't beat the theme engine.
-   Fix: app bootstraps .streamlit/config.toml with base="light" (the canonical
-   fix) AND ships defense-in-depth CSS covering portals + color-scheme.
-
-4. SECURITY: API key is no longer hardcoded. Reads GROQ_API_KEY from env or
-   st.secrets; falls back to heuristic weight inference so the demo never dies.
-
-Run:  streamlit run app.py
-Note: on the VERY first launch the config.toml is written fresh — if the page
-      still opens dark, refresh once (or restart) and it will lock to light.
+Link to my prototype:- https://jaymali2467-expedia-ai-travel-planne-app-4w2crj.streamlit.app/
 """
 
 import calendar
